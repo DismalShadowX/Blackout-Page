@@ -29,7 +29,8 @@ This HTML page depends on the following:
 7. Obtain an SSL certificate from Let's Encrypt for your domain using the command `sudo certbot certonly --nginx -d example.com --rsa-key-size 4096`. (replace `example.com` with your domain). This step is optional if you already have a valid SSL certificate.
 8. By default NGINX is usually located in `/etc/nginx` directory (Ubuntu). Edit the main `nginx.conf` file `sudo nano /etc/nginx/nginx.conf`.
 9. Comment out the line `include /etc/nginx/sites-enabled/*;` in the "http" block and add the line `include /etc/nginx/sites-available/blackout.conf;`. (blackout.conf file inculded in repo)
-10. Copy the `blackout.conf` from this repo to `/etc/nginx/sites-available/`
+10. Copy the `blackout.conf` from this repo to `/etc/nginx/sites-available/` like so `cp dist/blackout.conf /etc/nginx/sites-available/
+`
 11. Create a symbolic link to enable the blackout configuration: `sudo ln -s /etc/nginx/sites-available/blackout.conf /etc/nginx/sites-enabled/blackout.conf`
 12. Reload NGINX to apply the changes. `sudo systemctl reload nginx`.
 13. Test the NGINX configuration for any errors: `sudo nginx -t`.
