@@ -1,6 +1,12 @@
 # Blackout Page
 <h2>A simple HTML page with spotlight-like effect for participating in a blackout protest in support of any causes.</h2>
 
+# Demo
+https://everythingbagel.me/blackout-demo.html
+
+<img src="screenshots/Screenshot-1.png" alt="Screenshot 1" style="width: 1000px;">
+<img src="screenshots/Screenshot-2.png" alt="Screenshot 2" style="width: 1000px;">
+
 ## Prerequisites
 
 - Nginx
@@ -37,6 +43,17 @@ This HTML page depends on the following:
 - The wildcard domain `*.example.com;` is used in `blackout.conf` to enable blackout on the domain and its subdomains.
 - Easily reversible by uncomment `include /etc/nginx/sites-enabled/*;` and comment out `#include /etc/nginx/sites-available/blackout;` and reload NGINX.
 - Can remove `/etc/nginx/sites-enabled/blackout.conf` symbolic link by running `sudo rm -r /etc/nginx/sites-enabled/blackout.conf`,although it's not necessary as `nginx.conf` handles it.
+
+## What's inculded in the repo?
+- A HTML file
+- NGINX location block for CSS and images path. Open Graph support and A+ SSL ranking.
+
+### I don't want the spotlight-like effect, how can I remove it?
+Simply comment out or remove the relevant CSS code block responsible for the spotlight effect with `/* */`. Additionally, the div element with the `id="spotlight"`
+
+### I want to use my own background image.
+If there's no background-image specified, the background-color property will take precedence
+`background-image: url('path_to_your_image.jpg');`
 
 ## Contributing
 
