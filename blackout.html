@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website is Offline</title>
+  <meta name="twitter:card" content="summary">
+  <meta property="og:title" content="Website is Offline">
+  <meta property="og:description" content="This website is participating in a blackout protest in support of [cause]. We stand in solidarity with those fighting for justice and equality.">
+  <meta property="og:url" content="https://example.com/blackout.html">
+  <meta property="og:image" content="https://example.com/images/logo.png"> <!-- Use a fallback image -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="My Website">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: black;
+      color: white;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      display: flex; /* Use flexbox to center content vertically and horizontally */
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Ensure the body takes up the full height of the viewport */
+      position: relative;
+    }
+    .container {
+      padding: 50px;
+    }
+    h1 {
+      font-size: 36px;
+    }
+    p {
+      font-size: 18px;
+    }
+    /* Spotlight effect */
+    #spotlight {
+      position: fixed;
+      opacity: 1;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      animation: pulse 3s ease-in-out infinite alternate forwards; /* Apply the pulse animation */
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="spotlight"></div> <!-- Add the spotlight effect -->
+  <div class="container">
+    <h1>Website is Offline</h1>
+    <p>This website is participating in a blackout protest in support of [cause]. We stand in solidarity with those fighting for justice and equality.</p>
+    <p>For more information, please visit <a href="example.com">example.com</a>.</p>
+  </div>
+  <script>
+    const spotlightEl = document.querySelector("#spotlight");
+
+    function handleMouseMove(event) {
+      setTimeout(() => {
+        updateEl(event.clientX, event.clientY);
+      }, 50);
+    }
+
+    function updateEl(clientX, clientY) {
+      spotlightEl.style.background = `radial-gradient(circle at ${clientX}px ${clientY}px, #00000000 10px, #000000ee 350px)`;
+    }
+
+    document.addEventListener("mousemove", handleMouseMove);
+  </script>
+</body>
+</html>
